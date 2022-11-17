@@ -1,59 +1,63 @@
 
+// const username = process.argv[2].split('=')[1]
+// console.log(`Hello, ${username}`)
+const connectionString = '<https://cloud.mongodb.com>'
 
 
-var express = require('express');
 
-var app = express();
+// var express = require('express');
 
-app.get('/', function(req, res){
-  res.render('index1');
-});
-app.listen(3000, function () {
-  console.log('listening on port 3000!')
-});
+// var app = express();
 
-  app.set('view engine', 'ejs');
+// app.get('/', function(req, res){
+//   res.render('index1');
+// });
+// app.listen(3000, function () {
+//   console.log('listening on port 3000!')
+// });
 
-  app.get("/", function(req, res) {    
-    res.render('index1')
-  });
-  app.use(express.static("public"));
+//   app.set('view engine', 'ejs');
 
-  var bodyParser = require("body-parser");
+//   app.get("/", function(req, res) {    
+//     res.render('index1')
+//   });
+//   app.use(express.static("public"));
 
-app.use(bodyParser.urlencoded({ extended: true }));
+//   var bodyParser = require("body-parser");
 
-
-var task = ["buy socks", "practise with nodejs", "learn Express todoapp"];
-
-app.post('/addtask', function (req, res) {
-    var newTask = req.body.newtask;
-
-    task.push(newTask);
-
-    res.redirect("/");
-});
-
-app.get("/", function(req, res) {
-  res.render('index1', { task: task, complete: complete});
-});
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 
-var complete = ["finish buy stock"];
-app.post("/removetask", function(req, res) {
-     var completeTask = req.body.check;
+// var task = ["buy socks", "practise with nodejs", "learn Express todoapp"];
 
-if (typeof completeTask === "string") {
-     complete.push(completeTask);
+// app.post('/addtask', function (req, res) {
+//     var newTask = req.body.newtask;
+
+//     task.push(newTask);
+
+//     res.redirect("/");
+// });
+
+// app.get("/", function(req, res) {
+//   res.render('index1', { task: task, complete: complete});
+// });
+
+
+// var complete = ["finish buy stock"];
+// app.post("/removetask", function(req, res) {
+//      var completeTask = req.body.check;
+
+// if (typeof completeTask === "string") {
+//      complete.push(completeTask);
 
      
-  task.splice(task.indexOf(completeTask), 1);
-} else if (typeof completeTask === "object") {
-    for (var i = 0; i < completeTask.length; i++) {     complete.push(completeTask[i]);
-    task.splice(task.indexOf(completeTask[i]), 1);
-}
-}
-   res.redirect("/");
-});
+//   task.splice(task.indexOf(completeTask), 1);
+// } else if (typeof completeTask === "object") {
+//     for (var i = 0; i < completeTask.length; i++) {     complete.push(completeTask[i]);
+//     task.splice(task.indexOf(completeTask[i]), 1);
+// }
+// }
+//    res.redirect("/");
+// });
   
   
